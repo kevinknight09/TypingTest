@@ -1,7 +1,6 @@
-﻿using System;
-namespace TypingTest
+﻿namespace TypingTest
 {
-	public class StringGenerator : IStringGenerator
+    public class StringGenerator : IStringGenerator
 	{
         private const string listOfChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         private int lengthOfString;

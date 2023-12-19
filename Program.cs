@@ -7,5 +7,5 @@ StartApplication();
 void StartApplication()
 {
     var typer = new Typer();
-    typer.StartTyping();
+    typer.StartApp();
 }

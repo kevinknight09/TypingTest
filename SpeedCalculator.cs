@@ -1,9 +1,8 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace TypingTest
 {
-	public class SpeedCalculator : ISpeedCalculator
+    public class SpeedCalculator : ISpeedCalculator
 	{
 		private Stopwatch stopwatch;
 

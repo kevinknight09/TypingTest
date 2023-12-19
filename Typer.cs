@@ -1,7 +1,6 @@
-﻿using System;
-namespace TypingTest
+﻿namespace TypingTest
 {
-	public class Typer : ITyper
+    public class Typer : ITyper
 	{
 		private ISpeedCalculator mySpeedCalculator;
 		private IStringGenerator myStringGenerator;
@@ -15,27 +14,23 @@ namespace TypingTest
 			myStringGenerator = new StringGenerator();
 		}
 
-		public void StartTyping()
+		public void StartApp()
 		{
 			ShowInitialMessages();
-
-			var difficultyInput = Console.ReadLine();
-
-			SetLevel(difficultyInput.First());
-			myStringGenerator.SetLengthOfString(myLength);
-
-			var stringToType = myStringGenerator.GetRandomStringToType();
-
-			OutputStringContent(stringToType,ConsoleColor.DarkGreen);
-
-			TypeContent();
-			
-			var timeTakenToType = mySpeedCalculator.GetTotalSeconds();
-			OutputStringContent($"You took {timeTakenToType} seconds to type the sentence");
+			SetDifficulty();
+			var stringToType = GetContentToType();
+			TypeAndValidateContent(stringToType);
+			ShowResults();
 		}
 
+		private void SetDifficulty()
+		{
+            var difficultyInput = Console.ReadLine();
+            SetLevel(difficultyInput.First());
+            myStringGenerator.SetLengthOfString(myLength);
+        }
 
-		private void SetLevel(char difficulty)
+        private void SetLevel(char difficulty)
 		{
 			switch(difficulty)
 			{
@@ -50,8 +45,19 @@ namespace TypingTest
 				case 'H':
 					myLength = 60;
 					break;
+
+				default:
+					myLength = 100;
+					break;
 			}
 		}
+
+		private string GetContentToType()
+		{
+            var stringToType = myStringGenerator.GetRandomStringToType();
+            OutputStringContent(stringToType, ConsoleColor.DarkGreen);
+			return stringToType;
+        }
 
 		private void ShowInitialMessages()
 		{
@@ -68,11 +74,31 @@ namespace TypingTest
 			Console.ResetColor();
 		}
 
-		private void TypeContent()
+		private void TypeAndValidateContent(string contentToType)
 		{
             mySpeedCalculator.StartTiming();
-            var typedContent = Console.ReadLine();
+			Console.ForegroundColor = ConsoleColor.Blue;
+			string typedContent;
+			do
+			{
+				OutputStringContent("Start Typing");
+				typedContent = Console.ReadLine();
+
+				if(typedContent != contentToType)
+				{
+					OutputStringContent("There is some mistake, Try Again", ConsoleColor.DarkRed);
+				}
+			}
+			while (!(typedContent == contentToType));
+
             mySpeedCalculator.StopTiming();
+			Console.ResetColor();
+        }
+
+		private void ShowResults()
+		{
+            var timeTakenToType = mySpeedCalculator.GetTotalSeconds();
+            OutputStringContent($"You took {timeTakenToType} seconds to type the sentence",ConsoleColor.DarkGreen);
         }
 	}
 }

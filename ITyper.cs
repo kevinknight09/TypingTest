@@ -1,12 +1,11 @@
-﻿using System;
-namespace TypingTest
+﻿namespace TypingTest
 {
-	public interface ITyper
+    public interface ITyper
 	{
 		/// <summary>
-		/// 
+		/// Starts the Typing Test Application
 		/// </summary>
-		void StartTyping();
+		void StartApp();
 	}
 }
 
