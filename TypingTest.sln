@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingTest", "TypingTest.csproj", "{701C5F68-811B-4A8F-A73D-49CAA397AACD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{701C5F68-811B-4A8F-A73D-49CAA397AACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701C5F68-811B-4A8F-A73D-49CAA397AACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701C5F68-811B-4A8F-A73D-49CAA397AACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701C5F68-811B-4A8F-A73D-49CAA397AACD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ABDFD09-797C-43A7-ABE2-DC22DF5B16C5}
+	EndGlobalSection
+EndGlobal
